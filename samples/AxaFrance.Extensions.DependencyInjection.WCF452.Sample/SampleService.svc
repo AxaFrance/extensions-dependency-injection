@@ -1,0 +1,2 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="AxaFrance.Extensions.DependencyInjection.WCF.Sample.SampleService" 
+    Factory="AxaFrance.Extensions.DependencyInjection.WCF.Sample.WithDependencyInjectionServiceFactory" %>

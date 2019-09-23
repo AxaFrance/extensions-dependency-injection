@@ -1,0 +1,99 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.WCF", "src\AxaFrance.Extensions.DependencyInjection.WCF\AxaFrance.Extensions.DependencyInjection.WCF.csproj", "{EE0C8EFF-9BD2-4283-A191-5CCBBAE47937}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{EBC70037-B810-4345-BD47-ADD776DC1798}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxaFrance.Extensions.DependencyInjection.WCF.Sample", "samples\AxaFrance.Extensions.DependencyInjection.WCF.Sample\AxaFrance.Extensions.DependencyInjection.WCF.Sample.csproj", "{6AD49E6B-5CB7-4471-86D9-6FB802408E31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.WebApi", "src\AxaFrance.Extensions.DependencyInjection.WebApi\AxaFrance.Extensions.DependencyInjection.WebApi.csproj", "{E17896B1-B53F-4C30-9749-97A8F76CB1AE}"
+EndProject 
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.WebApi.Tests", "test\AxaFrance.Extensions.DependencyInjection.WebApi.Tests\AxaFrance.Extensions.DependencyInjection.WebApi.Tests.csproj", "{2CABF339-32FE-405B-9B65-33563D43CE35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxaFrance.Extensions.DependencyInjection.WebApi.Sample", "samples\AxaFrance.Extensions.DependencyInjection.WebApi.Sample\AxaFrance.Extensions.DependencyInjection.WebApi.Sample.csproj", "{DF8C69D2-CE09-4938-A3E9-AC04B61B4FCD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.Mvc", "src\AxaFrance.Extensions.DependencyInjection.Mvc\AxaFrance.Extensions.DependencyInjection.Mvc.csproj", "{FF7E695B-6D38-4E42-B352-91CD3FE8394A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.Mvc.Tests", "test\AxaFrance.Extensions.DependencyInjection.Mvc.Tests\AxaFrance.Extensions.DependencyInjection.Mvc.Tests.csproj", "{A6749BC6-D711-4CDB-86C3-719ECDCB40E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxaFrance.Extensions.DependencyInjection.WCF452.Sample", "samples\AxaFrance.Extensions.DependencyInjection.WCF452.Sample\AxaFrance.Extensions.DependencyInjection.WCF452.Sample.csproj", "{460A61C1-CF64-40AA-81B1-9248B2A3CB94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxaFrance.Extensions.DependencyInjection.Owin.Sample", "samples\AxaFrance.Extensions.DependencyInjection.Owin.Sample\AxaFrance.Extensions.DependencyInjection.Owin.Sample.csproj", "{66D40F60-9395-47A1-AC69-9C222755AF78}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.Owin.Tests", "test\AxaFrance.Extensions.DependencyInjection.Owin.Tests\AxaFrance.Extensions.DependencyInjection.Owin.Tests.csproj", "{F260E43F-6649-4E39-B868-C3E3A061AA1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4BE0B2CD-5D7D-4407-B770-6CC4B3A747F6}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.Owin", "src\AxaFrance.Extensions.DependencyInjection.Owin\AxaFrance.Extensions.DependencyInjection.Owin.csproj", "{BAB1E70C-0A99-41AD-9CB5-E0977A34C546}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE0C8EFF-9BD2-4283-A191-5CCBBAE47937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE0C8EFF-9BD2-4283-A191-5CCBBAE47937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE0C8EFF-9BD2-4283-A191-5CCBBAE47937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE0C8EFF-9BD2-4283-A191-5CCBBAE47937}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AD49E6B-5CB7-4471-86D9-6FB802408E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD49E6B-5CB7-4471-86D9-6FB802408E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD49E6B-5CB7-4471-86D9-6FB802408E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD49E6B-5CB7-4471-86D9-6FB802408E31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E17896B1-B53F-4C30-9749-97A8F76CB1AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E17896B1-B53F-4C30-9749-97A8F76CB1AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E17896B1-B53F-4C30-9749-97A8F76CB1AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E17896B1-B53F-4C30-9749-97A8F76CB1AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CABF339-32FE-405B-9B65-33563D43CE35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CABF339-32FE-405B-9B65-33563D43CE35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CABF339-32FE-405B-9B65-33563D43CE35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CABF339-32FE-405B-9B65-33563D43CE35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF8C69D2-CE09-4938-A3E9-AC04B61B4FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF8C69D2-CE09-4938-A3E9-AC04B61B4FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF8C69D2-CE09-4938-A3E9-AC04B61B4FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF8C69D2-CE09-4938-A3E9-AC04B61B4FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF7E695B-6D38-4E42-B352-91CD3FE8394A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF7E695B-6D38-4E42-B352-91CD3FE8394A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF7E695B-6D38-4E42-B352-91CD3FE8394A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF7E695B-6D38-4E42-B352-91CD3FE8394A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6749BC6-D711-4CDB-86C3-719ECDCB40E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6749BC6-D711-4CDB-86C3-719ECDCB40E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6749BC6-D711-4CDB-86C3-719ECDCB40E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6749BC6-D711-4CDB-86C3-719ECDCB40E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{460A61C1-CF64-40AA-81B1-9248B2A3CB94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{460A61C1-CF64-40AA-81B1-9248B2A3CB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{460A61C1-CF64-40AA-81B1-9248B2A3CB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{460A61C1-CF64-40AA-81B1-9248B2A3CB94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D40F60-9395-47A1-AC69-9C222755AF78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D40F60-9395-47A1-AC69-9C222755AF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D40F60-9395-47A1-AC69-9C222755AF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D40F60-9395-47A1-AC69-9C222755AF78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F260E43F-6649-4E39-B868-C3E3A061AA1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F260E43F-6649-4E39-B868-C3E3A061AA1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F260E43F-6649-4E39-B868-C3E3A061AA1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F260E43F-6649-4E39-B868-C3E3A061AA1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB1E70C-0A99-41AD-9CB5-E0977A34C546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB1E70C-0A99-41AD-9CB5-E0977A34C546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB1E70C-0A99-41AD-9CB5-E0977A34C546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB1E70C-0A99-41AD-9CB5-E0977A34C546}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6AD49E6B-5CB7-4471-86D9-6FB802408E31} = {EBC70037-B810-4345-BD47-ADD776DC1798}
+		{DF8C69D2-CE09-4938-A3E9-AC04B61B4FCD} = {EBC70037-B810-4345-BD47-ADD776DC1798}
+		{460A61C1-CF64-40AA-81B1-9248B2A3CB94} = {EBC70037-B810-4345-BD47-ADD776DC1798}
+		{66D40F60-9395-47A1-AC69-9C222755AF78} = {EBC70037-B810-4345-BD47-ADD776DC1798}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F27C8C0C-A9ED-4445-A90B-A3AF5CE968F3}
+	EndGlobalSection
+EndGlobal
