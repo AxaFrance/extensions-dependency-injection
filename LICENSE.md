@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright (c) Axa France IARD / Axa France VIE
+Copyright (c) 2019 Axa France IARD / Axa France VIE
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
