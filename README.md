@@ -60,7 +60,7 @@ public ActionResult Index([FromServices] IScopedService scopedService)
 ### WCF
 1. Install the WCF package:
 ```ps
-Install-Package AxaFrance.Extensions.DependencyInjection.Mvc
+Install-Package AxaFrance.Extensions.DependencyInjection.WCF
 ```
 
 2. Create a class that inherits `DIServiceHostFactory` to register your services:
