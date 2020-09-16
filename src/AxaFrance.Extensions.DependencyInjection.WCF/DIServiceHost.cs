@@ -6,7 +6,7 @@
     using System.ServiceModel.Description;
     using Microsoft.Extensions.DependencyInjection;
 
-    internal class DIServiceHost : ServiceHost
+    public class DIServiceHost : ServiceHost
     {
         public DIServiceHost(IServiceProvider serviceProvider, Type serviceType, Uri[] baseAddresses)
             : base(serviceType, baseAddresses)
