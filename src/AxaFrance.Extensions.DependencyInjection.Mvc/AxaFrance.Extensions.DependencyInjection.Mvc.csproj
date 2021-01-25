@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
+    <TargetFrameworks>net452;net461</TargetFrameworks>
     <DebugType>Full</DebugType>
   </PropertyGroup>
 
@@ -17,11 +17,17 @@
     <RepositoryUrl>https://github.com/AxaGuilDEv/extensions-dependency-injection</RepositoryUrl>
     <IsPackable>true</IsPackable>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.6" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net452'">
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.1" />
-    
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net461'">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
