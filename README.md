@@ -170,3 +170,4 @@ Thanks to our amazing contributors:
 * [Guillaume DELAHAYE](https://twitter.com/g7ed6e)
 * [Antoine BLANCKE](https://github.com/antoineblancke)
 * [Jean-Lou PIERME](https://github.com/JLou)
+* [Rémi JACQUART](https://github.com/remija)
