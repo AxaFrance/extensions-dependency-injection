@@ -58,27 +58,40 @@ jobs:
     - name: Restore NuGet Packages
       run: nuget restore AxaFrance.Extensions.DependencyInjection.sln
     
-    # Build solution
-    - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.1
-
-    - name: Build and analyze
+    # Prepare SonarCloud
+    - name: Prepare SonarCloud
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
         .\.sonar\scanner\dotnet-sonarscanner begin /k:"AxaGuilDEv_extensions-dependency-injection" /o:"axaguildev" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+        
+    # Build solution
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+    - name: Build
+      run: |
         msbuild AxaFrance.Extensions.DependencyInjection.sln
-        .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
-#    - name: Build
-#      run: msbuild AxaFrance.Extensions.DependencyInjection.sln
-    
-    - name: Tests
+    # Run Tests
+    - name: Run Tests
       uses: microsoft/vstest-action@v1.0.0
       with:
         testAssembly: |
           **/*Tests.dll
         searchFolder: ./test/
         runInParallel: true
+
+    - name: Complete SonarCloud
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      shell: powershell
+      run: |
+        .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+
+#    - name: Build
+#      run: msbuild AxaFrance.Extensions.DependencyInjection.sln
+    
+
