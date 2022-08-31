@@ -29,7 +29,7 @@ jobs:
       run: msbuild AxaFrance.Extensions.DependencyInjection.sln /p:Configuration=Release
     
     - name: Tests
-      uses: microsoft-approved-actions/vstest@master
+      uses: microsoft/vstest-action@v1.0.0
       with:
         testAssembly: AxaFrance.Extensions.DependencyInjection.*.Tests.dll
         searchFolder: ./test/
