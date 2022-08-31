@@ -1,4 +1,6 @@
-﻿namespace AxaFrance.Extensions.DependencyInjection.WebApi.Tests
+﻿using Xunit;
+
+namespace AxaFrance.Extensions.DependencyInjection.WebApi.Tests
 {
     using System;
     using System.Net.Http;
@@ -10,23 +12,19 @@
     using System.Web.Http.Metadata.Providers;
     using System.Web.Http.ModelBinding;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using Moq;
 
-    [TestClass]
     public class FromServicesModelBinder_BindModelShould
     {
-        private HttpActionContext httpActionContext;
+        private readonly HttpActionContext httpActionContext;
 
-        private Mock<IDependencyResolver> dependencyResolverMock;
+        private readonly Mock<IDependencyResolver> dependencyResolverMock;
 
         public interface IService
         {
         }
 
-        [TestInitialize]
-        public void BeforeEach()
+        public FromServicesModelBinder_BindModelShould()
         {
             this.dependencyResolverMock = new Mock<IDependencyResolver>();
             var httpConfiguration = new HttpConfiguration
@@ -50,7 +48,7 @@
                                         };
         }
 
-        [TestMethod]
+        [Fact]
         public void ReturnTrueWhenModelTypeIsResolved()
         {
             var expectedType = typeof(IService);
@@ -64,11 +62,11 @@
 
             var binded = fromServicesModeBinder.BindModel(this.httpActionContext, modelBindingContext);
 
-            Assert.IsInstanceOfType(modelBindingContext.Model, expectedType);
-            Assert.IsTrue(binded);
+            Assert.IsAssignableFrom<IService>(modelBindingContext.Model);
+            Assert.True(binded);
         }
 
-        [TestMethod]
+        [Fact]
         public void ReturnFalseWhenModelTypeIsNotResolved()
         {
             this.dependencyResolverMock.Setup(d => d.GetService(It.IsAny<Type>()))
@@ -81,8 +79,8 @@
 
             var binded = fromServicesModeBinder.BindModel(this.httpActionContext, modelBindingContext);
 
-            Assert.IsNull(modelBindingContext.Model);
-            Assert.IsFalse(binded);
+            Assert.Null(modelBindingContext.Model);
+            Assert.False(binded);
         }
 
         public class Service : IService

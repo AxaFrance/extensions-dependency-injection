@@ -1,19 +1,18 @@
-﻿namespace AxaFrance.Extensions.DependencyInjection.Mvc.Tests
+﻿using Xunit;
+
+namespace AxaFrance.Extensions.DependencyInjection.Mvc.Tests
 {
     using System.Web.Mvc;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using Moq;
 
-    [TestClass]
     public class FromServicesModelBinder_BindModelShould
     {
         public interface IService
         {
         }
 
-        [TestMethod]
+        [Fact]
         public void ReturnInstanceOfModelType()
         {
             var expectedType = typeof(IService);
@@ -30,7 +29,7 @@
                         ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, expectedType)
                     });
 
-            Assert.IsInstanceOfType(model, expectedType);
+            Assert.IsAssignableFrom<IService>(model);
         }
 
         public class Service : IService

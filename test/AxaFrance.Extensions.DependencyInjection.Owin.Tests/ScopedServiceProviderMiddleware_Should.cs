@@ -2,21 +2,19 @@
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin.Testing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Owin;
+using Xunit;
 
 namespace AxaFrance.Extensions.DependencyInjection.Owin.Tests
 {
-    [TestClass]
     public class ScopedServiceProviderMiddleware_Should
     {
-        private Mock<IServiceProvider> serviceProvider;
-        private Mock<IServiceScope> serviceScope;
-        private Mock<IServiceScopeFactory> serviceScopeFactory;
+        private readonly Mock<IServiceProvider> serviceProvider;
+        private readonly Mock<IServiceScope> serviceScope;
+        private readonly Mock<IServiceScopeFactory> serviceScopeFactory;
 
-        [TestInitialize]
-        public void BeforeEach()
+        public ScopedServiceProviderMiddleware_Should()
         {
             serviceProvider = new Mock<IServiceProvider>();
             serviceScope = new Mock<IServiceScope>();
@@ -29,7 +27,7 @@ namespace AxaFrance.Extensions.DependencyInjection.Owin.Tests
                                .Returns(serviceScope.Object);
         }
 
-        [TestMethod]
+        [Fact]
         public async Task AddDependencyScopeOnOwinContextForNextMiddlewares()
         {
             IServiceScope ambiantServiceScope = null;
@@ -47,12 +45,12 @@ namespace AxaFrance.Extensions.DependencyInjection.Owin.Tests
                 await testServer.CreateRequest("/")
                                 .GetAsync();
 
-                Assert.IsNotNull(ambiantServiceScope);
-                Assert.AreSame(serviceScope.Object, ambiantServiceScope);
+                Assert.NotNull(ambiantServiceScope);
+                Assert.Same(serviceScope.Object, ambiantServiceScope);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public async Task DisposeServiceScopeBeforeTheRequestEndsGracefully()
         {
             using (var testServer = TestServer.Create(app =>
@@ -73,7 +71,7 @@ namespace AxaFrance.Extensions.DependencyInjection.Owin.Tests
             }
         }
 
-        [TestMethod]
+        [Fact]
         public async Task DisposeServiceScopeBeforeTheRequestEndsOnException()
         {
             using (var testServer = TestServer.Create(app =>

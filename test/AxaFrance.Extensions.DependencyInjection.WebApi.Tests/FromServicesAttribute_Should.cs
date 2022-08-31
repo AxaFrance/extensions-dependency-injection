@@ -1,26 +1,25 @@
-﻿namespace AxaFrance.Extensions.DependencyInjection.WebApi.Tests
+﻿using Xunit;
+
+namespace AxaFrance.Extensions.DependencyInjection.WebApi.Tests
 {
     using System.Web.Http.ModelBinding;
 
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    [TestClass]
     public class FromServicesAttribute_Should
     {
-        [TestMethod]
+        [Fact]
         public void InheriteOfModelBinderAttribute()
         {
             var fromServices = new FromServicesAttribute();
             
-            Assert.IsInstanceOfType(fromServices, typeof(ModelBinderAttribute));
+            Assert.IsAssignableFrom<ModelBinderAttribute>(fromServices);
         }
 
-        [TestMethod]
+        [Fact]
         public void ReturnFromServicesModelBinderTypeWhenCallBinderType()
         {
             var fromServices = new FromServicesAttribute();
             var modelBinder = fromServices.BinderType;
-            Assert.AreEqual(typeof(FromServicesModelBinder), modelBinder);
+            Assert.Equal(typeof(FromServicesModelBinder), modelBinder);
         }
     }
 }
