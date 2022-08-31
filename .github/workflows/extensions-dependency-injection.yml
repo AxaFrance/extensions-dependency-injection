@@ -19,6 +19,14 @@ jobs:
       with:
         dotnet-version: 6.0.x
     
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1
+      with: 
+        nuget-version: '5.x'
+     
+    - name: Restore NuGet Packages
+      run: nuget restore AxaFrance.Extensions.DependencyInjection.sln
+    
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.1
 
