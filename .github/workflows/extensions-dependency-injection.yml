@@ -25,6 +25,12 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.1
 
-    - name: Build app for release
+    - name: Build
       run: msbuild AxaFrance.Extensions.DependencyInjection.sln /p:Configuration=Release
     
+    - name: Tests
+      uses: microsoft-approved-actions/vstest@master
+      with:
+        testAssembly: AxaFrance.Extensions.DependencyInjection.*.Tests.dll
+        searchFolder: ./test/
+        runInParallel: true
