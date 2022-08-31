@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29123.88
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.WCF", "src\AxaFrance.Extensions.DependencyInjection.WCF\AxaFrance.Extensions.DependencyInjection.WCF.csproj", "{EE0C8EFF-9BD2-4283-A191-5CCBBAE47937}"
 EndProject
@@ -10,7 +10,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxaFrance.Extensions.DependencyInjection.WCF.Sample", "samples\AxaFrance.Extensions.DependencyInjection.WCF.Sample\AxaFrance.Extensions.DependencyInjection.WCF.Sample.csproj", "{6AD49E6B-5CB7-4471-86D9-6FB802408E31}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.WebApi", "src\AxaFrance.Extensions.DependencyInjection.WebApi\AxaFrance.Extensions.DependencyInjection.WebApi.csproj", "{E17896B1-B53F-4C30-9749-97A8F76CB1AE}"
-EndProject 
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.WebApi.Tests", "test\AxaFrance.Extensions.DependencyInjection.WebApi.Tests\AxaFrance.Extensions.DependencyInjection.WebApi.Tests.csproj", "{2CABF339-32FE-405B-9B65-33563D43CE35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxaFrance.Extensions.DependencyInjection.WebApi.Sample", "samples\AxaFrance.Extensions.DependencyInjection.WebApi.Sample\AxaFrance.Extensions.DependencyInjection.WebApi.Sample.csproj", "{DF8C69D2-CE09-4938-A3E9-AC04B61B4FCD}"
@@ -18,8 +18,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.Mvc", "src\AxaFrance.Extensions.DependencyInjection.Mvc\AxaFrance.Extensions.DependencyInjection.Mvc.csproj", "{FF7E695B-6D38-4E42-B352-91CD3FE8394A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxaFrance.Extensions.DependencyInjection.Mvc.Tests", "test\AxaFrance.Extensions.DependencyInjection.Mvc.Tests\AxaFrance.Extensions.DependencyInjection.Mvc.Tests.csproj", "{A6749BC6-D711-4CDB-86C3-719ECDCB40E0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxaFrance.Extensions.DependencyInjection.WCF452.Sample", "samples\AxaFrance.Extensions.DependencyInjection.WCF452.Sample\AxaFrance.Extensions.DependencyInjection.WCF452.Sample.csproj", "{460A61C1-CF64-40AA-81B1-9248B2A3CB94}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxaFrance.Extensions.DependencyInjection.Owin.Sample", "samples\AxaFrance.Extensions.DependencyInjection.Owin.Sample\AxaFrance.Extensions.DependencyInjection.Owin.Sample.csproj", "{66D40F60-9395-47A1-AC69-9C222755AF78}"
 EndProject
@@ -67,10 +65,6 @@ Global
 		{A6749BC6-D711-4CDB-86C3-719ECDCB40E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6749BC6-D711-4CDB-86C3-719ECDCB40E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6749BC6-D711-4CDB-86C3-719ECDCB40E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{460A61C1-CF64-40AA-81B1-9248B2A3CB94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{460A61C1-CF64-40AA-81B1-9248B2A3CB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{460A61C1-CF64-40AA-81B1-9248B2A3CB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{460A61C1-CF64-40AA-81B1-9248B2A3CB94}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66D40F60-9395-47A1-AC69-9C222755AF78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66D40F60-9395-47A1-AC69-9C222755AF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D40F60-9395-47A1-AC69-9C222755AF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -90,7 +84,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6AD49E6B-5CB7-4471-86D9-6FB802408E31} = {EBC70037-B810-4345-BD47-ADD776DC1798}
 		{DF8C69D2-CE09-4938-A3E9-AC04B61B4FCD} = {EBC70037-B810-4345-BD47-ADD776DC1798}
-		{460A61C1-CF64-40AA-81B1-9248B2A3CB94} = {EBC70037-B810-4345-BD47-ADD776DC1798}
 		{66D40F60-9395-47A1-AC69-9C222755AF78} = {EBC70037-B810-4345-BD47-ADD776DC1798}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
