@@ -65,7 +65,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
-        .\.sonar\scanner\dotnet-sonarscanner begin /k:"AxaGuilDEv_extensions-dependency-injection" /o:"axaguildev" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+        .\.sonar\scanner\dotnet-sonarscanner begin /k:"AxaGuilDEv_extensions-dependency-injection" /o:"axaguildev" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io /d:sonar.cs.opencover.reportsPaths=TestResults"
         
     # Build solution
     - name: Add msbuild to PATH
@@ -90,8 +90,3 @@ jobs:
       shell: powershell
       run: |
         .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-
-#    - name: Build
-#      run: msbuild AxaFrance.Extensions.DependencyInjection.sln
-    
-
