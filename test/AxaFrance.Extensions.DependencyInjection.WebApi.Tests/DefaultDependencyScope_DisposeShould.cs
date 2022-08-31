@@ -1,26 +1,24 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Xunit;
 
 namespace AxaFrance.Extensions.DependencyInjection.WebApi.Tests
 {
-    [TestClass]
     public class DefaultDependencyScope_DisposeShould
     {
-        private DefaultDependencyScope defaultDependencyScope;
-        private Mock<IServiceScope> serviceScope;
+        private readonly DefaultDependencyScope defaultDependencyScope;
+        private readonly Mock<IServiceScope> serviceScope;
 
-        [TestInitialize]
-        public void BeforeEach()
+        public DefaultDependencyScope_DisposeShould()
         {
-            serviceScope = new Mock<IServiceScope>();
-            defaultDependencyScope = new DefaultDependencyScope(serviceScope.Object);
+            this.serviceScope = new Mock<IServiceScope>();
+            this.defaultDependencyScope = new DefaultDependencyScope(serviceScope.Object);
         }
 
-        [TestMethod]
+        [Fact]
         public void DisposeServiceScope()
         {
-            defaultDependencyScope.Dispose();
+            this.defaultDependencyScope.Dispose();
 
             serviceScope.Verify(o => o.Dispose());
         }

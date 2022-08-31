@@ -1,46 +1,44 @@
 using System.Web.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace AxaFrance.Extensions.DependencyInjection.Mvc.Tests
 {
-    [TestClass]
     public class ServiceCollectionExtensions_AddMvcShould
     {
-        private IServiceCollection collection;
+        private readonly IServiceCollection collection;
 
-        [TestInitialize]
-        public void BeforeEach()
+        public ServiceCollectionExtensions_AddMvcShould()
         {
-            collection = new ServiceCollection();
+            this.collection = new ServiceCollection();
         }
 
-        [TestMethod]
+        [Fact]
         public void RegisterEveryClassExtendingControllerFoundInCurrentAssembly()
         {
             collection.AddMvc();
 
             var provider = collection.BuildServiceProvider();
-            Assert.IsNotNull(provider.GetService(typeof(TestController)));
+            Assert.NotNull(provider.GetService(typeof(TestController)));
         }
 
-        [TestMethod]
+        [Fact]
         public void NotRegisterAbstractAndGenericClassExtendingControllerFoundInCurrentAssembly()
         {
             collection.AddMvc();
 
             var provider = collection.BuildServiceProvider();
-            Assert.IsNull(provider.GetService(typeof(GenericController<string>)));
-            Assert.IsNull(provider.GetService(typeof(AbstractController)));
+            Assert.Null(provider.GetService(typeof(GenericController<string>)));
+            Assert.Null(provider.GetService(typeof(AbstractController)));
         }
 
-        [TestMethod]
+        [Fact]
         public void NotRegisterClassExtendingControllerFoundWhichNameDoesNotEndWithControllerInCurrentAssembly()
         {
             collection.AddMvc();
 
             var provider = collection.BuildServiceProvider();
-            Assert.IsNull(provider.GetService(typeof(Dummy)));
+            Assert.Null(provider.GetService(typeof(Dummy)));
         }
     }
 

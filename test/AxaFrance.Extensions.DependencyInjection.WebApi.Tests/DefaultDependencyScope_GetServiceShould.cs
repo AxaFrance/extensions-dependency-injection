@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace AxaFrance.Extensions.DependencyInjection.WebApi.Tests
 {
-    [TestClass]
     public class DefaultDependencyScope_GetServiceShould
     {
-        private DefaultDependencyScope _defaultDependencyScope;
-        private object implementationInstance;
-        private IServiceProvider serviceProvider;
+        private readonly DefaultDependencyScope _defaultDependencyScope;
+        private readonly object implementationInstance;
+        private readonly IServiceProvider serviceProvider;
 
-        [TestInitialize]
-        public void BeforeEach()
+        public DefaultDependencyScope_GetServiceShould()
         {
             implementationInstance = new object();
             serviceProvider = new ServiceCollection()
@@ -24,21 +22,21 @@ namespace AxaFrance.Extensions.DependencyInjection.WebApi.Tests
             _defaultDependencyScope = new DefaultDependencyScope(serviceProvider.CreateScope());
         }
 
-        [TestMethod]
+        [Fact]
         public void ResolveOneServiceOfOneType()
         {
             var instance = _defaultDependencyScope.GetService(typeof(object));
 
-            Assert.AreSame(implementationInstance, instance);
+            Assert.Same(implementationInstance, instance);
         }
 
-        [TestMethod]
+        [Fact]
         public void ResolveMultipleServicesOfOneType()
         {
-            var instances = _defaultDependencyScope.GetServices(typeof(ITestService));
+            var instances = _defaultDependencyScope.GetServices(typeof(ITestService)).ToList();
 
-            Assert.IsTrue(instances.Any(o => o is TestService));
-            Assert.IsTrue(instances.Any(o => o is AnotherTestService));
+            Assert.Contains(instances, o => o is TestService);
+            Assert.Contains(instances, o => o is AnotherTestService);
         }
 
         private interface ITestService

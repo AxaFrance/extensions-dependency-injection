@@ -1,29 +1,27 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace AxaFrance.Extensions.DependencyInjection.Owin.Tests
 {
-    [TestClass]
     public class OwinContextExtensions_GetDependencyScopeShould
     {
-        private IOwinContext context;
+        private readonly IOwinContext context;
 
-        [TestInitialize]
-        public void BeforeEach()
+        public OwinContextExtensions_GetDependencyScopeShould()
         {
-            context = new OwinContext();
+            this.context = new OwinContext();
         }
 
-        [TestMethod]
+        [Fact]
         public void ReturnNull_WhenNoServiceScopeWasSetYet()
         {
             IServiceScope serviceScope = context.GetDependencyScope();
 
-            Assert.IsNull(serviceScope);
+            Assert.Null(serviceScope);
         }
 
-        [TestMethod]
+        [Fact]
         public void ReturnServiceScope_WhenServiceScopeWasSet()
         {
             var original = new ServiceCollection().BuildServiceProvider()
@@ -32,7 +30,7 @@ namespace AxaFrance.Extensions.DependencyInjection.Owin.Tests
 
             var serviceScope = context.GetDependencyScope();
 
-            Assert.AreSame(original, serviceScope);
+            Assert.Same(original, serviceScope);
         }
     }
 }

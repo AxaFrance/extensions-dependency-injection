@@ -1,27 +1,25 @@
 ﻿using System.Web.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace AxaFrance.Extensions.DependencyInjection.WebApi.Tests
 {
-    [TestClass]
     public class ServiceCollectionExtensions_AddWebApiShould
     {
-        private IServiceCollection collection;
+        private readonly IServiceCollection collection;
 
-        [TestInitialize]
-        public void BeforeEach()
+        public ServiceCollectionExtensions_AddWebApiShould()
         {
             collection = new ServiceCollection();
         }
 
-        [TestMethod]
+        [Fact]
         public void RegisterEveryClassExtendingApiControllerFoundInCurrentAssembly()
         {
             collection.AddWebApi();
 
             var provider = collection.BuildServiceProvider();
-            Assert.IsNotNull(provider.GetService(typeof(TestController)));
+            Assert.NotNull(provider.GetService(typeof(TestController)));
         }
     }
 

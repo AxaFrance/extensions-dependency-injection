@@ -1,20 +1,18 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Xunit;
 
 namespace AxaFrance.Extensions.DependencyInjection.WebApi.Tests
 {
-    [TestClass]
     public class DefaultDependencyResolver_BeginScopeShould
     {
-        private DefaultDependencyResolver resolver;
-        private Mock<IServiceProvider> serviceProvider;
-        private Mock<IServiceScope> serviceScope;
-        private Mock<IServiceScopeFactory> serviceScopeFactory;
+        private readonly DefaultDependencyResolver resolver;
+        private readonly Mock<IServiceProvider> serviceProvider;
+        private readonly Mock<IServiceScope> serviceScope;
+        private readonly Mock<IServiceScopeFactory> serviceScopeFactory;
 
-        [TestInitialize]
-        public void BeforeEach()
+        public DefaultDependencyResolver_BeginScopeShould()
         {
             serviceScopeFactory = new Mock<IServiceScopeFactory>();
             serviceProvider = new Mock<IServiceProvider>();
@@ -27,7 +25,7 @@ namespace AxaFrance.Extensions.DependencyInjection.WebApi.Tests
                 .Returns(serviceScope.Object);
         }
 
-        [TestMethod]
+        [Fact]
         public void ProvideNewServiceScope_WithScopedServiceProvider()
         {
             var scopedServiceProvider = new Mock<IServiceProvider>();
@@ -39,13 +37,13 @@ namespace AxaFrance.Extensions.DependencyInjection.WebApi.Tests
 
             var dependencyScope = resolver.BeginScope();
 
-            Assert.AreSame(expectedObjectInstance, dependencyScope.GetService(typeof(object)));
+            Assert.Same(expectedObjectInstance, dependencyScope.GetService(typeof(object)));
         }
 
-        [TestMethod]
+        [Fact]
         public void BeADependencyScope()
         {
-            Assert.IsInstanceOfType(resolver, typeof(DefaultDependencyScope));
+            Assert.IsType<DefaultDependencyResolver>(resolver);
         }
     }
 }
