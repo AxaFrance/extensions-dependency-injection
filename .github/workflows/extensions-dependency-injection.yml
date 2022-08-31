@@ -82,6 +82,7 @@ jobs:
           **/*Tests.dll
         searchFolder: ./test/
         runInParallel: true
+        codeCoverageEnabled: true
 
     - name: Complete SonarCloud
       env:
