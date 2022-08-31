@@ -44,5 +44,5 @@ jobs:
       with:
         testAssembly: |
           **/*Tests.dll
-        searchFolder: ./test
+        searchFolder: ./test/
         runInParallel: true
