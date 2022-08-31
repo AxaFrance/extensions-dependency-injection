@@ -65,7 +65,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
-        .\.sonar\scanner\dotnet-sonarscanner begin /k:"AxaGuilDEv_extensions-dependency-injection" /o:"axaguildev" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vstest.reportsPaths=./TestResults/*.trx /d:sonar.verbose=true
+        .\.sonar\scanner\dotnet-sonarscanner begin /k:"AxaGuilDEv_extensions-dependency-injection" /o:"axaguildev" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vstest.reportsPaths=./TestResults/*.trx /d:sonar.cs.opencover.reportsPaths=./**/coverage.opencover.xml /d:sonar.coverage.exclusions=./test/**/*.* /d:sonar.verbose=true
         
     # Build solution
     - name: Add msbuild to PATH
@@ -75,18 +75,25 @@ jobs:
         msbuild AxaFrance.Extensions.DependencyInjection.sln
 
     # Run Tests
-    - name: Run Tests
-      uses: microsoft/vstest-action@v1.0.0
+    # - name: Run Tests
+    #   uses: microsoft/vstest-action@v1.0.0
+    #   with:
+    #     testAssembly: |
+    #       **/*Tests.dll
+    #     searchFolder: ./test/
+    #     runInParallel: true
+    #     codeCoverageEnabled: false
+    
+    - uses: actions/setup-dotnet@v2
       with:
-        testAssembly: |
-          **/*Tests.dll
-        searchFolder: ./test/
-        runInParallel: true
-        codeCoverageEnabled: false
+        dotnet-version: '6.x'
+    - run: dotnet test ./test/AxaFrance.Extensions.DependencyInjection.Mvc.Tests/AxaFrance.Extensions.DependencyInjection.Mvc.Tests.csproj --collect:"XPlat Code Coverage" --settings coverlet.runsettings
+    - run: dotnet test ./test/AxaFrance.Extensions.DependencyInjection.Owin.Tests/AxaFrance.Extensions.DependencyInjection.Owin.Tests.csproj --collect:"XPlat Code Coverage" --settings coverlet.runsettings
+    - run: dotnet test ./test/AxaFrance.Extensions.DependencyInjection.WebApi.Tests/AxaFrance.Extensions.DependencyInjection.WebApi.Tests.csproj --collect:"XPlat Code Coverage" --settings coverlet.runsettings
 
     - name: Complete SonarCloud
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
