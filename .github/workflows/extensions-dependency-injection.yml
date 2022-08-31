@@ -31,6 +31,5 @@ jobs:
     - name: Tests
       uses: microsoft/vstest-action@v1.0.0
       with:
-        testAssembly: AxaFrance.Extensions.DependencyInjection.*.Tests.dll
         searchFolder: ./test/
         runInParallel: true
