@@ -42,6 +42,7 @@ jobs:
     - name: Tests
       uses: microsoft/vstest-action@v1.0.0
       with:
-        testAssembly: '**/*Tests.dll'
-        searchFolder: test
+        testAssembly: |
+          **/*Tests.dll
+        searchFolder: ./test
         runInParallel: true
