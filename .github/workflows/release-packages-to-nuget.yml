@@ -1,0 +1,43 @@
+name: .NET
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    
+    # Determine current version
+    - name: Install GitVersion
+      uses: gittools/actions/gitversion/setup@v0.9.7
+      with:
+        versionSpec: '5.x'
+    - name: Determine Version
+      uses: gittools/actions/gitversion/execute@v0.9.7        
+
+    # Restore NuGet packages
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1
+      with: 
+        nuget-version: '5.x'
+    - name: Restore NuGet Packages
+      run: nuget restore AxaFrance.Extensions.DependencyInjection.sln
+           
+    # Build solution
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+    - name: Build
+      run: |
+        msbuild AxaFrance.Extensions.DependencyInjection.sln
+
+    - run: dotnet pack -c Release ./src/AxaFrance.Extensions.DependencyInjection.WebApi/AxaFrance.Extensions.DependencyInjection.WebApi.csproj
+    - run: dotnet pack -c Release ./src/AxaFrance.Extensions.DependencyInjection.Owin/AxaFrance.Extensions.DependencyInjection.Owin.csproj
+    - run: dotnet pack -c Release ./src/AxaFrance.Extensions.DependencyInjection.Mvc/AxaFrance.Extensions.DependencyInjection.Mvc.csproj
+    - run: dotnet pack -c Release ./src/AxaFrance.Extensions.DependencyInjection.WCF/AxaFrance.Extensions.DependencyInjection.WCF.csproj
