@@ -1,4 +1,4 @@
-name: .NET
+name: Release packages
 
 on:
   workflow_dispatch:
@@ -20,6 +20,7 @@ jobs:
       with:
         versionSpec: '5.x'
     - name: Determine Version
+      id: gitversion
       uses: gittools/actions/gitversion/execute@v0.9.7        
 
     # Restore NuGet packages
@@ -37,7 +38,12 @@ jobs:
       run: |
         msbuild AxaFrance.Extensions.DependencyInjection.sln
 
-    - run: dotnet pack -c Release ./src/AxaFrance.Extensions.DependencyInjection.WebApi/AxaFrance.Extensions.DependencyInjection.WebApi.csproj
-    - run: dotnet pack -c Release ./src/AxaFrance.Extensions.DependencyInjection.Owin/AxaFrance.Extensions.DependencyInjection.Owin.csproj
-    - run: dotnet pack -c Release ./src/AxaFrance.Extensions.DependencyInjection.Mvc/AxaFrance.Extensions.DependencyInjection.Mvc.csproj
-    - run: dotnet pack -c Release ./src/AxaFrance.Extensions.DependencyInjection.WCF/AxaFrance.Extensions.DependencyInjection.WCF.csproj
+    - run: dotnet pack -o output -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }} -c Release ./src/AxaFrance.Extensions.DependencyInjection.WebApi/AxaFrance.Extensions.DependencyInjection.WebApi.csproj
+    - run: dotnet pack -o output -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }} -c Release ./src/AxaFrance.Extensions.DependencyInjection.Owin/AxaFrance.Extensions.DependencyInjection.Owin.csproj
+    - run: dotnet pack -o output -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }} -c Release ./src/AxaFrance.Extensions.DependencyInjection.Mvc/AxaFrance.Extensions.DependencyInjection.Mvc.csproj
+    - run: dotnet pack -o output -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }} -c Release ./src/AxaFrance.Extensions.DependencyInjection.WCF/AxaFrance.Extensions.DependencyInjection.WCF.csproj
+    
+    - uses: actions/upload-artifact@v3
+      with:
+        name: packages
+        path: output/*.nupkg
