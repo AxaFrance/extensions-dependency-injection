@@ -12,7 +12,7 @@
 
     <Title>AxaFrance.Extensions.DependencyInjection for OWIN</Title>
     <Description>Use Microsoft.Extensions.DependencyInjection in OWIN applications</Description>
-
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/AxaGuilDEv/extensions-dependency-injection</RepositoryUrl>
     <IsPackable>true</IsPackable>
   </PropertyGroup>

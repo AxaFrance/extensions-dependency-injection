@@ -13,7 +13,7 @@
 
     <Title>AxaFrance.Extensions.DependencyInjection for WCF services</Title>
     <Description>Use Microsoft.Extensions.DependencyInjection in WCF services</Description>
-
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/AxaGuilDEv/extensions-dependency-injection</RepositoryUrl>
     <IsPackable>true</IsPackable>
   </PropertyGroup>
