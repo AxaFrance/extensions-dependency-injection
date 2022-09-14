@@ -10,10 +10,10 @@
     <Version>1.0.0</Version>
     <Authors>AxaFrance</Authors>
     <Company>AxaFrance</Company>
-
+    
     <Title>AxaFrance.Extensions.DependencyInjection for MVC</Title>
     <Description>Use Microsoft.Extensions.DependencyInjection in old MVC projects</Description>
-
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/AxaGuilDEv/extensions-dependency-injection</RepositoryUrl>
     <IsPackable>true</IsPackable>
   </PropertyGroup>
