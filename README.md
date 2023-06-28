@@ -1,5 +1,7 @@
 # AxaFrance Dependency Injection
 
+[![Continuous Integration](https://github.com/AxaFrance/extensions-dependency-injection/actions/workflows/extensions-dependency-injection.yml/badge.svg)](https://github.com/AxaFrance/extensions-dependency-injection/actions/workflows/extensions-dependency-injection.yaml) [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=AxaFrance_extensions-dependency-injection&metric=alert_status)](https://sonarcloud.io/dashboard?id=AxaFrance_extensions-dependency-injection) [![Reliability](https://sonarcloud.io/api/project_badges/measure?project=AxaFrance_extensions-dependency-injection&metric=reliability_rating)](https://sonarcloud.io/component_measures?id=AxaFrance_extensions-dependency-injection&metric=reliability_rating) [![Security](https://sonarcloud.io/api/project_badges/measure?project=AxaFrance_extensions-dependency-injection&metric=security_rating)](https://sonarcloud.io/component_measures?id=AxaFrance_extensions-dependency-injection&metric=security_rating) [![Code Corevage](https://sonarcloud.io/api/project_badges/measure?project=AxaFrance_extensions-dependency-injection&metric=coverage)](https://sonarcloud.io/component_measures?id=AxaFrance_extensions-dependency-injection&metric=Coverage)
+
 ## About
 This package allows projects running on older version of .NET Framework to use the new dependency injection framework introduced with ASP.NET Core.
 It works with OWIN, MVC and WebApi web applications as well as WCF services.
