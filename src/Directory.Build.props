@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Company>AXA France</Company>
+    <PackageIcon>axa_icon.jpg</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <IsPackable>true</IsPackable>
+    <IncludeSymbols>true</IncludeSymbols>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <SrcDir>$(MSBuildThisFileDirectory)</SrcDir>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Copyright © AXA France 2019</Copyright>
+    <PackageProjectUrl>https://github.com/AxaGuilDEv/extensions-dependency-injection</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AxaGuilDEv/extensions-dependency-injection</RepositoryUrl>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="..\Common\axa_icon.jpg" Pack="true" PackagePath="\"/>
+    <None Include="..\..\LICENSE" Pack="true"/>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+	<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+</Project>
